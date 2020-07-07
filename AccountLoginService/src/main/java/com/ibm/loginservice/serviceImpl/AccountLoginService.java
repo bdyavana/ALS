@@ -28,21 +28,6 @@ public class AccountLoginService implements UserDetailsService{
 				new ArrayList<>());
 	}
 	
-	public UserDTO getUser(UserDTO userDTO) {
-		User aUser = accountLoginRepository.findByusername(userDTO.getUsername());
-
-		if (aUser != null) {
-			UserDTO dto = new UserDTO();
-			dto.setUsername(aUser.getUsername());
-			dto.setPassword(aUser.getPassword());
-
-			return dto;
-		}
-		else {
-			return null;
-		}
-	}
-	
 	public UserDTO getUserDetailsById(Long id) {
 		Optional<User> user = accountLoginRepository.findById(id);
 		UserDTO dto = new UserDTO();
